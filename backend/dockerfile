@@ -9,3 +9,6 @@ ADD https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar lib/my
 COPY student.war webapps/student.war
 EXPOSE 8080
 CMD ["./bin/catalina.sh", "run"]
+
+
+
