@@ -1,17 +1,17 @@
-FROM node:18-alpine
+FROM node:14-alpine
 
 #create a app directory 
-WORKDIR /app 
+WORKDIR /app
 
 #install app dependencies 
 COPY package*.json ./
 
 #RUN npm install 
-RUN npm install 
+RUN npm install --verbose
 
 #bundle app souce 
-copy . .
+copy package*.json ./
 
-EXPOSE port 8080
+EXPOSE  8080
 
-CMD { "npm", "start" }
+CMD [ "npm", "start" ]
