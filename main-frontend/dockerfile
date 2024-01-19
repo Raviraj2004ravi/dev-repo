@@ -1,17 +1,12 @@
-FROM node:14-alpine
-
-#create a app directory 
-WORKDIR /app
-
-#install app dependencies 
-COPY package*.json ./
-
-#RUN npm install 
-RUN npm install --verbose
-
-#bundle app souce 
-copy package*.json ./
-
-EXPOSE  8080
-
-CMD [ "npm", "start" ]
+# INSTRUCTION ARG1 ARG2 ...
+FROM centos:7
+LABEL author=shubhamkalsait
+RUN yum install httpd -y
+COPY index.html /var/www/html/index.html
+# ADD source dest
+# WORKDIR /var/www/html
+EXPOSE 80
+CMD httpd -DFOREGROUND
+# CMD ["httpd", "-DFOREGROUND"]
+# ENTRYPOINT httpd -DFOREGROUND
+# ENTRYPOINT ["httpd", "-DFOREGROUND"]
