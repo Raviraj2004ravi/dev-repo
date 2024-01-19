@@ -68,12 +68,19 @@ docker run -d -v studentapp-vol:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=redhat mys
 docker exec -it mysql bash [mysql create database studentapp;] [create_schema] 
 
 step2: Deploy backend container
+
 configure context.xml
+
 update dockerfile
+
 build backend image
+
 docker run -d -p 8080:8080 backend:latest
 
 step3: Deploy frontend container
+
 configure index.html (update backend url)
+
 build frontend image
+
 docker run -d -p 80:80 frontend:latest
