@@ -60,8 +60,11 @@ docker run -v <vol-name>:<mount-path> <image>   # to run container with volume
 ## Deploy three tier Application using Docker
 
 step1: Deploy DB container
+
 docker volume create studentapp-vol
+
 docker run -d -v studentapp-vol:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=redhat mysql
+
 docker exec -it mysql bash [mysql create database studentapp;] [create_schema] 
 
 step2: Deploy backend container
